@@ -12,6 +12,8 @@
 		53D3EB2922F68A0700FAF519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D3EB2822F68A0700FAF519 /* Assets.xcassets */; };
 		53D3EB2C22F68A0800FAF519 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D3EB2A22F68A0800FAF519 /* Main.storyboard */; };
 		53D3EB2F22F68A0800FAF519 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D3EB2E22F68A0800FAF519 /* main.m */; };
+		53D3EB3822F6B75B00FAF519 /* SentenceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D3EB3722F6B75B00FAF519 /* SentenceParser.m */; };
+		91C1373022FD06FC00868B94 /* ASRResultParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C1372F22FD06FB00868B94 /* ASRResultParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,10 @@
 		53D3EB2D22F68A0800FAF519 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53D3EB2E22F68A0800FAF519 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53D3EB3022F68A0800FAF519 /* SentenceParser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SentenceParser.entitlements; sourceTree = "<group>"; };
+		53D3EB3622F6B75B00FAF519 /* SentenceParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SentenceParser.h; sourceTree = "<group>"; };
+		53D3EB3722F6B75B00FAF519 /* SentenceParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SentenceParser.m; sourceTree = "<group>"; };
+		91C1372E22FD06FB00868B94 /* ASRResultParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRResultParser.h; sourceTree = "<group>"; };
+		91C1372F22FD06FB00868B94 /* ASRResultParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASRResultParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,8 @@
 		53D3EB2122F68A0600FAF519 /* SentenceParser */ = {
 			isa = PBXGroup;
 			children = (
+				91C1372E22FD06FB00868B94 /* ASRResultParser.h */,
+				91C1372F22FD06FB00868B94 /* ASRResultParser.m */,
 				53D3EB2222F68A0600FAF519 /* AppDelegate.h */,
 				53D3EB2322F68A0600FAF519 /* AppDelegate.m */,
 				53D3EB2522F68A0600FAF519 /* ViewController.h */,
@@ -66,6 +74,8 @@
 				53D3EB2D22F68A0800FAF519 /* Info.plist */,
 				53D3EB2E22F68A0800FAF519 /* main.m */,
 				53D3EB3022F68A0800FAF519 /* SentenceParser.entitlements */,
+				53D3EB3622F6B75B00FAF519 /* SentenceParser.h */,
+				53D3EB3722F6B75B00FAF519 /* SentenceParser.m */,
 			);
 			path = SentenceParser;
 			sourceTree = "<group>";
@@ -140,8 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				53D3EB2722F68A0600FAF519 /* ViewController.m in Sources */,
+				53D3EB3822F6B75B00FAF519 /* SentenceParser.m in Sources */,
 				53D3EB2F22F68A0800FAF519 /* main.m in Sources */,
 				53D3EB2422F68A0600FAF519 /* AppDelegate.m in Sources */,
+				91C1373022FD06FC00868B94 /* ASRResultParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
