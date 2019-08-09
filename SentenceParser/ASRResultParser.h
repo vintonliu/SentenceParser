@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ASRResultParser : NSObject
+@property (nonatomic, retain) NSString* _refText;
+@property (nonatomic, assign) int _overall;
+
 - (NSString*) parse: (int) source result:(NSString*) result;
 @end
 

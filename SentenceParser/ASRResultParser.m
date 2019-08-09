@@ -29,8 +29,6 @@
 @implementation ASRResultParser
 {
     int _source;
-    int _overall;
-    NSString *_refText;
     NSString *_recordId;
     NSMutableArray *_words;
 }
@@ -39,8 +37,8 @@
     self = [super init];
     if (self) {
         _source = 0;
-        _overall = 0;
-        _refText = @"";
+        self._overall = 0;
+        self._refText = @"";
         _recordId = nil;
         _words = [[NSMutableArray alloc] init];
     }
@@ -64,8 +62,8 @@
 
 - (void) reset {
     _source = 0;
-    _overall = 0;
-    _refText = @"";
+    self._overall = 0;
+    self._refText = @"";
     _recordId = nil;
     [_words removeAllObjects];
 }
@@ -74,7 +72,7 @@
     NSData *rootData = [result dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:rootData options:NSJSONReadingMutableLeaves error:nil];
     if ([[rootDict allKeys] containsObject:@"refText"]) {
-        _refText = [rootDict objectForKey:@"refText"];
+        self._refText = [rootDict objectForKey:@"refText"];
     }
     
     if ([[rootDict allKeys] containsObject:@"recordId"]) {
@@ -84,9 +82,9 @@
     if ([[rootDict allKeys] containsObject:@"result"]) {
         NSDictionary* resDict = [rootDict objectForKey:@"result"];
         if ([[resDict allKeys] containsObject:@"overall"]) {
-            _overall = [[resDict objectForKey:@"overall"] intValue];
+            self._overall = [[resDict objectForKey:@"overall"] intValue];
         } else if ([[resDict allKeys] containsObject:@"confidence"]) {
-            _overall = [[resDict objectForKey:@"confidence"] intValue];
+            self._overall = [[resDict objectForKey:@"confidence"] intValue];
         }
         
         if ([[resDict allKeys] containsObject:@"words"]) {
@@ -113,8 +111,8 @@
     NSData *resData = [result dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *resDict = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
     
-    _overall = [[resDict objectForKey:@"overall"] intValue];
-    _refText = [resDict objectForKey:@"refText"];
+    self._overall = [[resDict objectForKey:@"overall"] intValue];
+    self._refText = [resDict objectForKey:@"refText"];
 }
 
 - (NSString *) buildUnifiedResult {
@@ -127,8 +125,8 @@
     
     NSMutableDictionary *resultDict = [[NSMutableDictionary alloc] init];
     [resultDict setObject:@(_source) forKey:@"source"];
-    [resultDict setObject:_refText forKey:@"refText"];
-    [resultDict setObject:@(_overall) forKey:@"overall"];
+    [resultDict setObject:self._refText forKey:@"refText"];
+    [resultDict setObject:@(self._overall) forKey:@"overall"];
     if (_recordId != nil) {
         [resultDict setObject:_recordId forKey:@"recordId"];
     }
